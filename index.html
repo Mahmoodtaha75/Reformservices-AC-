@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow-md p-4 flex justify-between items-center relative">
+        <div class="text-xl font-bold">Reform Services</div>
+
+        <div class="flex items-center">
+            <!-- Mobile Cart Icon -->
+            <div class="mobile-cart-icon mr-4" onclick="toggleMobileCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <!-- Navigation -->
+            <nav>
+                <a href="index.html" class="mx-2 text-gray-700">Home</a>
+                <a href="#services" class="mx-2 text-gray-700">Services</a>
+                <a href="#" class="mx-2 text-gray-700">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Cart Overlay -->
+    <div class="mobile-overlay" onclick="toggleMobileCart()"></div>
+
+    <!-- Mobile Cart -->
+    <div class="mobile-cart">
+        <div class="p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold">Your Cart</h3>
+                <button onclick="toggleMobileCart()" class="text-2xl">&times;</button>
+            </div>
+            <div id="mobile-cart-items-list" class="mb-4"></div>
+            <div id="mobile-cart-total" class="font-bold text-right mb-4"></div>
+            <div class="flex flex-col space-y-2">
+                <button id="mobile-whatsapp-button" onclick="sendToWhatsApp()"
+                    class="bg-green-500 text-white p-2 rounded hover:bg-green-600">
+                    Send to WhatsApp
+                </button>
+                <button onclick="clearCart()" class="bg-red-500 text-white p-2 rounded hover:bg-red-600">
+                    Remove all items
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Slideshow -->
+    <section class="slideshow relative">
+        <div class="slide active" style="background-image: url('/imgs/img1.jpeg')"></div>
+        <div class="slide" style="background-image: url('/imgs/img2.jpeg')"></div>
+        <div class="slide" style="background-image: url('/imgs/img3.jpeg')"></div>
+
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div class="text-center text-white p-8 rounded-lg">
+                <h2 class="text-3xl font-bold mb-4">Professional AC Services</h2>
+                <p class="mb-4">All Types of AC Services Available</p>
+                <a href="tel:+917204584680"
+                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                    Call Us Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Container -->
+    <div class="services-container services-sections flex p-4 relative">
+        <!-- Left Services Section -->
+        <div class="left-side-services-box w-1/4 bg-white p-4 rounded shadow mr-4">
+            <h3 class="text-xl font-bold mb-4 text-center">Our Services</h3>
+            <div class="grid-container">
+                <button><img src="/imgs/ACservices.png" alt="Services"><span class="small-span">Services</span></button>
+                <button><img src="/imgs/gas-refill-repair.png" alt="Repair and Gas refill"><span
+                        class="small-span">Repair and Gas
+                        refill</span></button>
+                <button><img src="/imgs/installationAC.png" alt="Installation"><span
+                        class="small-span">Installation</span></button>
+                <button><img src="/imgs/uninstallation.png" alt="uninstallation"><span
+                        class="small-span">uninstallation</span></button>
+            </div>
+        </div>
+
+        <!-- Middle Services Section -->
+        <div class="middle-box w-1/2 bg-white p-4 rounded shadow">
+            <div class="AC-services mb-6">
+                <h2 class="text-2xl font-bold mb-4">Services</h2>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/drycleaning.png" alt="" class="mid-img-services">
+                        <h4 class="font-bold mb-2">Dry service</h4>
+                        <p class="mb-2">thorough cleaning of indoor unit, it includes removel of dust from the mesh and
+                            cleaning with special cloth so that the dust goes off</p>
+                        <button onclick="addToCart('Dryservice', 1, 499)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹499
+                        </button>
+                    </div>
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/jetspraywater.png" alt="" class="mid-img-services">
+                        <h4 class="font-bold mb-2">jetspray cleaning</h4>
+                        <p class="mb-2">thorough cleaning of indoor with water jet spray gun</p>
+                        <button onclick="addToCart('jet spray cleaning', 1, 650)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹650
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="AC-repair-and-gas-refill">
+                <h2 class="text-2xl font-bold mb-4">Repair and Gas Refill</h2>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/repair.png" alt="" class="mid-img-repairgas">
+                        <h4 class="font-bold mb-2">AC less/no cooling repair</h4>
+                        <p class="mb-2">complete check-up to identify issues before repair</p>
+                        <button onclick="addToCart('AC less/no cooling repair', 1, 219)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹219
+                        </button>
+                    </div>
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/electric_problem.png" alt="" class="mid-img-repairgas">
+                        <h4 class="font-bold mb-2">AC power issue Repair</h4>
+                        <p class="mb-2">complete check-up to identify issues before repair</p>
+                        <button onclick="addToCart('AC power issue Repair', 1, 219)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹219
+                        </button>
+                    </div>
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/Ac smell-noise.png" alt="" class="mid-img-repairgas">
+                        <h4 class="font-bold mb-2">AC noise/smell repair</h4>
+                        <p class="mb-2">complete check-up to identify issues before repair</p>
+                        <button onclick="addToCart('AC noise/smell repair', 1, 219)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹219
+                        </button>
+                    </div>
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/waterleak.png" alt="water leakage problem" class="mid-img-repairgas">
+                        <h4 class="font-bold mb-2">AC Water leakage repair</h4>
+                        <p class="mb-2">complete check-up to identify issues before repair</p>
+                        <button onclick="addToCart('AC Water leakage repair', 1, 219)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹219
+                        </button>
+                    </div>
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/gas-refill-repair.png" alt="Gas" class="mid-img-repairgas">
+                        <h4 class="font-bold mb-2">AC gas leak repair and refill</h4>
+                        <p class="mb-2">complete check-up to identify issues before repair</p>
+                        <button onclick="addToCart('AC gas leak repair and refill', 1, 219)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹219
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="Installation">
+                <h2 class="text-2xl font-bold mb-4">Installation</h2>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/split-AC.png" alt="Split-AC-Installation">
+                        <h4 class="font-bold mb-2">Split AC Installation</h4>
+                        <button onclick="addToCart('Split AC Installation', 1, 2000)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹2000
+                        </button>
+                    </div>
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/window-ac.png" alt="Split-AC-UnInstallation">
+                        <h4 class="font-bold mb-2">Window AC installation</h4>
+                        <button onclick="addToCart('Window AC installation', 1, 2000)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹2000
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="uninstallation">
+                <h2 class="text-2xl font-bold mb-4">uninstallation</h2>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/uninstallation.png" alt="window-ac-installation">
+                        <h4 class="font-bold mb-2">Split AC UnInstallation</h4>
+                        <button onclick="addToCart('Split AC UnInstallation', 1, 900)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹900
+                        </button>
+                    </div>
+                    <div class="border p-4 rounded">
+                        <img src="/imgs/uninstallingwindowac.png" alt="uninstalling-window-ac">
+                        <h4 class="font-bold mb-2">Window AC uninstallation</h4>
+                        <button onclick="addToCart('Window AC uninstallation', 1, 900)"
+                            class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                            Add to Cart - ₹900
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Section -->
+        <div class="cart-right w-1/4 bg-white p-4 rounded shadow ml-4">
+            <h3 class="text-xl font-bold mb-4 text-center">Your Cart</h3>
+            <div id="cart-items-list" class="mb-4"></div>
+            <div id="cart-total" class="font-bold text-right mb-4"></div>
+            <div class="flex flex-col space-y-2">
+                <button id="whatsapp-button" onclick="sendToWhatsApp()"
+                    class="bg-green-500 text-white p-2 rounded hover:bg-green-600">
+                    Send to WhatsApp
+                </button>
+                <button onclick="clearCart()" class="bg-red-500 text-white p-2 rounded hover:bg-red-600">
+                    Clear Cart
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- whatsapp form -->
+    <div id="whatsapp-form" class="whatsapp-form">
+        <div class="form-container">
+            <div class="close-form"><span id="close-btn">&times;</span></div>
+            <h2>Send to WhatsApp</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" required></textarea>
+
+                <label for="services">Services:</label>
+                <textarea id="services" name="services" readonly></textarea>
+
+                <button id="send-whatsapp-btn" type="button">Send to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Background Overlay -->
+    <div id="overlay" class="overlay"></div>
+    <div id="added-to-cart-message" class="added-to-cart-message">
+        <span>Added to cart!</span>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="social-media-links">
+                <h3>Follow us on social media:</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/reform002?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook-f">aceBook</i></a></li>
+                    <li><a href="#" target="_blank"><i class="fab fa-twitter">witter</i></a></li>
+                    <li><a href="https://www.instagram.com/reform002" target="_blank"><i
+                                class="fab fa-instagram">nstagram</i></a></li>
+                </ul>
+            </div>
+            <div class="copyright-info">
+                <p>&copy; 2025 Reform Services. All rights reserved.</p>
+            </div>
+            <div class="credits">
+                icons were downloaded from Flaticon
+                <p>Creators:</p>
+                <p><a href="https://www.flaticon.com/free-icons/air-conditioning" title="air conditioning icons">Air conditioning icons created by Leremy - Flaticon</a></p>
+                <p>
+                    <a href="https://www.flaticon.com/free-icons/repair" title="repair icons">Repair icons created by surang - Flaticon</a>
+                </p>
+                <p><a href="https://www.flaticon.com/free-icons/installation" title="installation icons">Installation icons created by bsd - Flaticon</a></p>
+                <p>
+                    <a href="https://www.flaticon.com/free-icons/split-ac" title="split ac icons">Split ac icons created by ranksol graphics - Flaticon</a>
+                </p>
+                <p><a href="https://www.flaticon.com/free-icons/box" title="box icons">Box icons created by Freepik - Flaticon</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="main.js"></script>
+
+</html>
