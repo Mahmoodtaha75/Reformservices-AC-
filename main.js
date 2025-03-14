@@ -254,7 +254,7 @@
             }
 
             const message = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nAddress: ${address}\n\n${services}`;
-            const whatsappUrl = `https://wa.me/916363758384?text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `https://wa.me/919886106311?text=${encodeURIComponent(message)}`;
 
             window.open(whatsappUrl, '_blank');
             closeWhatsAppForm();
